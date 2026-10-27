@@ -158,6 +158,7 @@ button { font-family: inherit; }
 }
 /* Responsive: mobile */
 @media (max-width: 640px) {
+  .wrap { padding-right: 12px; padding-left: 12px; }
   .header { justify-content: center; flex-wrap: wrap; gap: 12px; }
   .logo img { width: 180px; height: 56px; }
   .search { flex: 1 1 100%; justify-content: center; }
@@ -173,4 +174,22 @@ button { font-family: inherit; }
   .cta-row .main { width: 100%; }
   .bene { grid-template-columns: 1fr; }
   .float-btns img { width: 48px; height: 48px; }
+  .menu { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; gap: 20px; padding: 14px 12px; -webkit-overflow-scrolling: touch; }
+  .menu a { flex: 0 0 auto; white-space: nowrap; }
+  .sect h3 { padding: 0 8px; overflow-wrap: anywhere; }
+  .cat-title { min-width: 0; }
+  .cat-title h2 { min-width: 0; max-width: 100%; font-size: 24px; overflow-wrap: anywhere; }
+  .price-filter { padding: 12px; }
+  .price-options { gap: 2px 12px; }
+  .price-options label { min-width: 0; overflow-wrap: anywhere; }
+  .cat-grid { min-width: 0; }
+}
+@media (max-width: 360px) {
+  .grid, .grid.g4, .cat-grid { grid-template-columns: minmax(0, 1fr); }
+  .sect { padding-top: 32px; }
+  .sect h3 { font-size: 20px; }
+  .sect .sub { font-size: 14px; padding: 0 4px; }
+  .cat-title h2 { font-size: 21px; }
+  .crumb { overflow-wrap: anywhere; }
+  .toolbar2 p { overflow-wrap: anywhere; }
 }
