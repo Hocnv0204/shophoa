@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import ProductCard from '../components/ProductCard.jsx'
 import { PRODUCTS, categoryName, fmt, productById } from '../data/products.js'
@@ -8,6 +8,17 @@ export default function ProductDetail({ onContact }) {
   const p = productById(id)
   const [img, setImg] = useState(0)
   const [qty, setQty] = useState(1)
+  const images = p?.images?.length ? p.images : p?.image ? [p.image] : []
+
+  useEffect(() => {
+    setImg(0)
+    if (images.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const interval = window.setInterval(() => {
+      setImg((current) => (current + 1) % images.length)
+    }, 5000)
+    return () => window.clearInterval(interval)
+  }, [id, images.length])
 
   if (!p) {
     return (
@@ -19,7 +30,6 @@ export default function ProductDetail({ onContact }) {
     )
   }
 
-  const images = p.images?.length ? p.images : p.image ? [p.image] : []
   const activeImage = images[Math.min(img, images.length - 1)]
 
   const desc = p.desc || `${p.name} được chọn hoa tươi trong ngày, gói cẩn thận và giao tận nơi. Thích hợp tặng sinh nhật, khai trương, kỷ niệm và các dịp đặc biệt.`
