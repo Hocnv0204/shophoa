@@ -4,10 +4,10 @@ export default function Footer() {
       <div className="wrap">
         <div className="cols">
           <div>
-            <div className="flogo">SHOP HOA TƯƠI</div>
+            <div className="flogo">Rose &amp; Bloom</div>
             <p style={{ marginTop: 8 }}>Trao hoa, trao yêu thương</p>
             <p>Hotline: 1900 xxx xxx</p>
-            <p>Email: hello@shophoatuoi.vn</p>
+            <p>Email: hello@roseandbloom.vn</p>
           </div>
           <div>
             <h4>CHĂM SÓC KHÁCH HÀNG</h4>
@@ -22,7 +22,7 @@ export default function Footer() {
             <ul><li>Hà Nội: Thôn Hồng Minh, Xã Phượng Dực</li><li>Mở cửa: 7:00 – 22:00 mỗi ngày</li></ul>
           </div>
         </div>
-        <div className="copy">© 2026 Shop Hoa Tươi — Mẫu landing page</div>
+        <div className="copy">© 2026 Rose &amp; Bloom — Tiệm Hoa chúc mừng</div>
       </div>
     </footer>
   )

@@ -56,10 +56,10 @@ export default function Category() {
     }
     if (q) out = out.filter((p) => p.name.toLowerCase().includes(q.toLowerCase()))
     if (prices.length) {
-      out = out.filter((p) => prices.some((id) => priceRanges.find((r) => r.id === id)?.test(p.price)))
+      out = out.filter((p) => Number.isFinite(p.price) && prices.some((id) => priceRanges.find((r) => r.id === id)?.test(p.price)))
     }
-    if (sort === 'asc') out.sort((a, b) => a.price - b.price)
-    if (sort === 'desc') out.sort((a, b) => b.price - a.price)
+    if (sort === 'asc') out.sort((a, b) => Number.isFinite(a.price) && Number.isFinite(b.price) ? a.price - b.price : Number.isFinite(a.price) ? -1 : Number.isFinite(b.price) ? 1 : 0)
+    if (sort === 'desc') out.sort((a, b) => Number.isFinite(a.price) && Number.isFinite(b.price) ? b.price - a.price : Number.isFinite(a.price) ? -1 : Number.isFinite(b.price) ? 1 : 0)
     if (sort === 'name') out.sort((a, b) => a.name.localeCompare(b.name, 'vi'))
     return out
   }, [slug, q, sort, prices, priceRanges])

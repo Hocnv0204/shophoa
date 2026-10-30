@@ -55,13 +55,13 @@ export default function Home() {
         <section className="hero">
           <div className="txt">
             <div className="eyebrow">BỘ SƯU TẬP MỚI</div>
-            <h2>Hoa tươi chúc mừng<br />ngày đặc biệt</h2>
+            <h2>Hoa chúc mừng<br />ngày đặc biệt</h2>
             <div className="bene">✓&nbsp; Giao hoa miễn phí&nbsp;&nbsp;&nbsp;✓&nbsp; Tặng kèm thiệp</div>
             <Link className="cta" to="/danh-muc/qua-sinh-nhat">ĐẶT HOA NGAY →</Link>
             <div className="sub">Hơn 500 mẫu hoa cho sinh nhật, khai trương, kỷ niệm và ngày lễ.</div>
           </div>
           <div className="banner">
-            <img className="banner-current" src={banners[bannerIndex]} alt={`Bó hoa tươi nổi bật ${bannerIndex + 1}`} />
+            <img className="banner-current" src={banners[bannerIndex]} alt={`Bó hoa nổi bật ${bannerIndex + 1}`} />
             {previousBannerIndex !== null && <img className="banner-previous" src={banners[previousBannerIndex]} alt="" aria-hidden="true" />}
             <div className="arrows">
               <button type="button" aria-label="Ảnh trước" onClick={() => changeBanner(-1)}>‹</button>
@@ -94,7 +94,7 @@ export default function Home() {
         <section className="sect">
           <h3>Khách hàng nói gì</h3><div className="rule"></div>
           <div className="quotes">
-            <div className="quote"><p>“Hoa tươi, giao đúng giờ hẹn, bó hoa giống hình mẫu tới 90%. Mình sẽ đặt lại dài dài.”</p><b>Thu Hà</b><span>Khách hàng tại Hà Nội</span></div>
+            <div className="quote"><p>“Hoa đẹp, giao đúng giờ hẹn, bó hoa giống hình mẫu tới 90%. Mình sẽ đặt lại dài dài.”</p><b>Thu Hà</b><span>Khách hàng tại Hà Nội</span></div>
             <div className="quote"><p>“Đặt lúc 9h sáng, 10h đã giao tới văn phòng. Thiệp viết tay rất xinh, người nhận rất thích.”</p><b>Minh Anh</b><span>Khách hàng tại Hà Nội</span></div>
             <div className="quote"><p>“Giá rõ ràng, không phát sinh. Lẵng khai trương to đẹp, sang hơn cả hình trên web.”</p><b>Quốc Bảo</b><span>Khách hàng tại TP.HCM</span></div>
           </div>

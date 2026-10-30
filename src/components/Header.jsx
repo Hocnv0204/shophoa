@@ -14,7 +14,7 @@ export default function Header() {
       <div className="wrap">
         <div className="header">
           <div className="logo">
-            <Link to="/" aria-label="Shop Hoa Tươi - Trang chủ"><img src="/icons/logo.png" alt="Shop Hoa Tươi" /></Link>
+            <Link to="/" aria-label="Rose & Bloom - Trang chủ"><img src="/icons/logo.png" alt="Rose & Bloom" /></Link>
           </div>
           <form className="search" onSubmit={submit}>
             <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Tìm kiếm..." />
