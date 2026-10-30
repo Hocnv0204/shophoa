@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ProductCard from '../components/ProductCard.jsx'
-import { CATEGORIES, PRODUCTS } from '../data/products.js'
+import { PRODUCTS } from '../data/products.js'
 
 const banners = [
   '2aOboR8HZBZon1t2ZJl7PwfGtRLDkmVsfTGv6u48.jpg',
@@ -13,17 +13,10 @@ const banners = [
 ].map((file) => `/assets/banner/${file}`)
 
 export default function Home() {
-  const previews = CATEGORIES.map((category) => {
-    const products = PRODUCTS.filter((p) => p.category === category.slug)
-    const fallbackCategory = category.slug === 'lam-theo-yeu-cau'
-      ? 'tong-hop-tu-400k'
-      : category.slug === 'qua-sinh-nhat'
-        ? 'tong-hop-200k-350k'
-        : null
-    return {
-      ...category,
-      products: (products.length ? products : PRODUCTS.filter((p) => p.category === fallbackCategory)).slice(0, 5),
-    }
+  const sortedProducts = [...PRODUCTS].sort((a, b) => {
+    if (a.price == null) return b.price == null ? 0 : 1
+    if (b.price == null) return -1
+    return a.price - b.price
   })
   const [bannerIndex, setBannerIndex] = useState(0)
   const [previousBannerIndex, setPreviousBannerIndex] = useState(null)
@@ -56,7 +49,6 @@ export default function Home() {
           <div className="txt">
             <div className="eyebrow">BỘ SƯU TẬP MỚI</div>
             <h2>Hoa chúc mừng<br />ngày đặc biệt</h2>
-            <div className="bene">✓&nbsp; Giao hoa miễn phí&nbsp;&nbsp;&nbsp;✓&nbsp; Tặng kèm thiệp</div>
             <Link className="cta" to="/danh-muc/qua-sinh-nhat">ĐẶT HOA NGAY →</Link>
             <div className="sub">Hơn 500 mẫu hoa cho sinh nhật, khai trương, kỷ niệm và ngày lễ.</div>
           </div>
@@ -70,12 +62,10 @@ export default function Home() {
           </div>
         </section>
 
-        {previews.slice(0, 3).map((category) => <section className="sect" key={category.slug}>
-          <h3>{category.name}</h3><div className="rule"></div>
-          <div className="sub">Khám phá các mẫu hoa trong danh mục</div>
-          <div className="grid">{category.products.map((p) => <ProductCard key={p.id} p={p} />)}</div>
-          <div className="category-more"><Link to={`/danh-muc/${category.slug}`}>Xem thêm →</Link></div>
-        </section>)}
+        <section className="sect">
+          <h3>Tất cả sản phẩm</h3><div className="rule"></div>
+          <div className="grid">{sortedProducts.map((p) => <ProductCard key={p.id} p={p} />)}</div>
+        </section>
 
         <section className="why"><div className="wrap"><div className="row">
           <div><div className="circ">60′</div><b>Giao trong 60 phút</b><span>Nội thành Hà Nội</span></div>
@@ -83,13 +73,6 @@ export default function Home() {
           <div><div className="circ">90%</div><b>Giống hình 80–90%</b><span>Hoa thực tế như mẫu</span></div>
           <div><div className="circ">500+</div><b>Hơn 500 mẫu hoa</b><span>Mọi dịp, mọi ngân sách</span></div>
         </div></div></section>
-
-        {previews.slice(3).map((category) => <section className="sect" key={category.slug}>
-          <h3>{category.name}</h3><div className="rule"></div>
-          <div className="sub">Khám phá các mẫu hoa trong danh mục</div>
-          <div className="grid">{category.products.map((p) => <ProductCard key={p.id} p={p} />)}</div>
-          <div className="category-more"><Link to={`/danh-muc/${category.slug}`}>Xem thêm →</Link></div>
-        </section>)}
 
         <section className="sect">
           <h3>Khách hàng nói gì</h3><div className="rule"></div>
