@@ -12,6 +12,25 @@ const banners = [
   '2aOboR8HVYMlsikxBtqICxTa2gcC4fm1Cc6XLnXM.jpg',
 ].map((file) => `/assets/banner/${file}`)
 
+const reviews = [
+  ['Ngọc Lan', 'Hoa lụa nhìn giống thật tới 90%, màu lên đúng như hình. Cắm phòng khách cả tháng vẫn đẹp, mình sẽ ủng hộ dài dài.'],
+  ['Quang Huy', 'Đặt hoa len tặng bạn gái dịp kỷ niệm, shop làm rất tỉ mỉ. Giao đúng hẹn, bạn mình rất thích vì giữ được lâu.'],
+  ['Thanh Thảo', 'Bó hoa sáp thơm nhẹ, đóng gói chắc chắn, không móp méo. Thiệp viết tay xinh, tặng cô giáo 20/11 rất hợp.'],
+  ['Đức Minh', 'Giá rõ ràng, không phát sinh phí. Lẵng hoa lụa khai trương to đẹp, nhìn sang hơn cả ảnh mẫu trên web.'],
+  ['Phương Linh', 'Mình nhờ shop tư vấn hoa khô trang trí quán cà phê, phối màu chuẩn gu luôn. Khách vào quán ai cũng khen.'],
+  ['Hoàng Yến', 'Đặt lúc 8h sáng, 10h đã giao tới công ty. Hoa giấy nhún nhiều màu pastel, đồng nghiệp nhận quà rất vui.'],
+  ['Bảo Ngọc', 'Bó hoa kẹo độc đáo, cả lớp mình ai cũng khen. Shop gói cẩn thận, giao nhanh đúng giờ.'],
+  ['Văn Toàn', 'Lần đầu mua hoa len nên hơi lo, nhận hàng thấy đẹp hơn hình. Nhân viên nhiệt tình, trả lời tin nhắn rất nhanh.'],
+  ['Thu Trang', 'Hoa không bao giờ héo nên tặng sếp rất hợp, nhìn lịch sự và sang trọng. Giá hợp lý so với chất lượng.'],
+  ['Anh Tuấn', 'Nhiều mẫu hoa sáp để chọn, mình chọn được bó tặng mẹ nhân ngày 20/10. Mẹ mình thích lắm, để trên bàn thờ nhìn rất trang nhã.'],
+  ['Khánh Vy', 'Hoa lụa cưới cầm tay chụp ảnh lên hình rất đẹp, đúng tông màu mình muốn. Shop hỗ trợ chỉnh sửa theo yêu cầu.'],
+  ['Minh Châu', 'Giao hàng đúng giờ hẹn, hoa giống hình mẫu tới 95%. Đóng gói kỹ nên không bị hư hỏng gì cả.'],
+  ['Gia Hân', 'Đặt hoa khô tặng tân gia, màu nâu cam rất ấm áp. Chủ nhà khen nhiều, mình sẽ đặt lại dịp sau.'],
+  ['Hải Đăng', 'Shop làm hoa len theo yêu cầu, thêm cả tên người nhận lên thiệp. Chi tiết nhỏ nhưng làm người nhận rất xúc động.'],
+  ['Mai Phương', 'Giá niêm yết minh bạch, tư vấn không ép mua. Hoa sáp đẹp hơn mong đợi, đáng tiền.'],
+]
+const reviewGroups = Array.from({ length: Math.ceil(reviews.length / 3) }, (_, index) => reviews.slice(index * 3, index * 3 + 3))
+
 export default function Home() {
   const sortedProducts = [...PRODUCTS].sort((a, b) => {
     if (a.price == null) return b.price == null ? 0 : 1
@@ -20,6 +39,8 @@ export default function Home() {
   })
   const [bannerIndex, setBannerIndex] = useState(0)
   const [previousBannerIndex, setPreviousBannerIndex] = useState(null)
+  const [reviewGroupIndex, setReviewGroupIndex] = useState(0)
+  const [reviewTransition, setReviewTransition] = useState(true)
 
   const changeBanner = (direction) => {
     setBannerIndex((index) => {
@@ -41,6 +62,22 @@ export default function Home() {
     }, 5000)
     return () => window.clearInterval(timer)
   }, [])
+
+  useEffect(() => {
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)')
+    if (motionPreference.matches) return
+    const timer = window.setInterval(() => {
+      setReviewGroupIndex((index) => index + 1)
+    }, 3800)
+    return () => window.clearInterval(timer)
+  }, [])
+
+  const handleReviewTransitionEnd = (event) => {
+    if (event.target !== event.currentTarget || reviewGroupIndex !== reviewGroups.length) return
+    setReviewTransition(false)
+    setReviewGroupIndex(0)
+    window.requestAnimationFrame(() => setReviewTransition(true))
+  }
 
   return (
     <main>
@@ -75,11 +112,30 @@ export default function Home() {
         </div></div></section>
 
         <section className="sect">
-          <h3>Khách hàng nói gì</h3><div className="rule"></div>
-          <div className="quotes">
-            <div className="quote"><p>“Hoa đẹp, giao đúng giờ hẹn, bó hoa giống hình mẫu tới 90%. Mình sẽ đặt lại dài dài.”</p><b>Thu Hà</b><span>Khách hàng tại Hà Nội</span></div>
-            <div className="quote"><p>“Đặt lúc 9h sáng, 10h đã giao tới văn phòng. Thiệp viết tay rất xinh, người nhận rất thích.”</p><b>Minh Anh</b><span>Khách hàng tại Hà Nội</span></div>
-            <div className="quote"><p>“Giá rõ ràng, không phát sinh. Lẵng khai trương to đẹp, sang hơn cả hình trên web.”</p><b>Quốc Bảo</b><span>Khách hàng tại TP.HCM</span></div>
+          <h3>Đánh giá khách hàng</h3><div className="rule"></div>
+          <div className="review-carousel" aria-label="Đánh giá khách hàng">
+            <div className="review-track" onTransitionEnd={handleReviewTransitionEnd} style={{ transform: `translateX(-${reviewGroupIndex * 100}%)`, transition: reviewTransition ? undefined : 'none' }}>
+              {reviewGroups.map((group, groupIndex) => (
+                <div className="review-group" key={groupIndex} aria-hidden={reviewGroupIndex !== groupIndex}>
+                  {group.map(([name, quote]) => (
+                    <article className="review-card" key={name}>
+                      <p>“{quote}”</p>
+                      <strong>{name}</strong>
+                      <span>Khách hàng tại Hà Nội</span>
+                    </article>
+                  ))}
+                </div>
+              ))}
+              <div className="review-group" key="review-clone" aria-hidden="true">
+                {reviewGroups[0].map(([name, quote]) => (
+                  <article className="review-card" key={name}>
+                    <p>“{quote}”</p>
+                    <strong>{name}</strong>
+                    <span>Khách hàng tại Hà Nội</span>
+                  </article>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       </div>
