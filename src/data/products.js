@@ -8,7 +8,6 @@ export const CATEGORIES = [
 ]
 
 export const PRODUCTS = [
-  { id: 1, name: "Mẫu f1 (25k)", price: 25000, category: "tong-hop-25k-150k", image: "/assets/25/f1_1.jpg", images: ['/assets/25/f1_1.jpg'] },
   { id: 2, name: "Mẫu f1 (30k)", price: 30000, category: "tong-hop-25k-150k", image: "/assets/30/f1_1.jpg", images: ['/assets/30/f1_1.jpg'] },
   { id: 3, name: "Mẫu f2 (30k)", price: 30000, category: "tong-hop-25k-150k", image: "/assets/30/f2_1.jpg", images: ['/assets/30/f2_1.jpg'] },
   { id: 4, name: "Mẫu f3 (30k)", price: 30000, category: "tong-hop-25k-150k", image: "/assets/30/f3_1.jpg", images: ['/assets/30/f3_1.jpg'] },
@@ -18,6 +17,7 @@ export const PRODUCTS = [
   { id: 8, name: "Mẫu f7 (30k)", price: 30000, category: "tong-hop-25k-150k", image: "/assets/30/f7_1.jpg", images: ['/assets/30/f7_1.jpg'] },
   { id: 9, name: "Mẫu f8 (30k)", price: 30000, category: "tong-hop-25k-150k", image: "/assets/30/f8_1.jpg", images: ['/assets/30/f8_1.jpg'] },
   { id: 10, name: "Mẫu f9 (30k)", price: 30000, category: "tong-hop-25k-150k", image: "/assets/30/f9_1.jpg", images: ['/assets/30/f9_1.jpg'] },
+  { id: 113, name: "Mẫu f10 (30k)", price: 30000, category: "tong-hop-25k-150k", image: "/assets/30/f10_1.jpg", images: ['/assets/30/f10_1.jpg'] },
   { id: 11, name: "Mẫu f1 (45k)", price: 45000, category: "tong-hop-25k-150k", image: "/assets/45/f1_1.jpg", images: ['/assets/45/f1_1.jpg'] },
   { id: 12, name: "Mẫu f2 (45k)", price: 45000, category: "tong-hop-25k-150k", image: "/assets/45/f2_1.jpg", images: ['/assets/45/f2_1.jpg'] },
   { id: 13, name: "Mẫu f1 (50k)", price: 50000, category: "tong-hop-25k-150k", image: "/assets/50/f1_1.jpg", images: ['/assets/50/f1_1.jpg'] },
