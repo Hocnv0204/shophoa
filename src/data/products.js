@@ -76,6 +76,8 @@ export const PRODUCTS = [
   { id: 58, name: "Mẫu f8 (350k)", price: 350000, category: "tong-hop-200k-350k", image: "/assets/350/f8_1.jpg", images: ['/assets/350/f8_1.jpg', '/assets/350/f8_2.jpg'] },
   { id: 59, name: "Mẫu f9 (350k)", price: 350000, category: "tong-hop-200k-350k", image: "/assets/350/f9_1.jpg", images: ['/assets/350/f9_1.jpg', '/assets/350/f9_2.jpg', '/assets/350/f9_3.jpg', '/assets/350/f9_4.jpg', '/assets/350/f9_5.jpg'] },
   { id: 60, name: "Mẫu f10 (350k)", price: 350000, category: "tong-hop-200k-350k", image: "/assets/350/f10_1.jpg", images: ['/assets/350/f10_1.jpg', '/assets/350/f10_2.jpg'] },
+  { id: 123, name: "Mẫu f11 (350k)", price: 350000, category: "tong-hop-200k-350k", image: "/assets/350/f11_1.jpg", images: ['/assets/350/f11_1.jpg', '/assets/350/f11_2.jpg'] },
+  { id: 124, name: "Mẫu f12 (350k)", price: 350000, category: "tong-hop-200k-350k", image: "/assets/350/f12_1.jpg", images: ['/assets/350/f12_1.jpg', '/assets/350/f12_2.jpg'] },
   { id: 83, name: "Mẫu f1 (380k)", price: 380000, category: "tong-hop-200k-350k", image: "/assets/380/f1_1.jpg", images: ['/assets/380/f1_1.jpg', '/assets/380/f1_2.jpg', '/assets/380/f1_3.jpg'] },
   { id: 84, name: "Mẫu f1 (400k)", price: 400000, category: "tong-hop-tu-400k", image: "/assets/400/f1_1.jpg", images: ['/assets/400/f1_1.jpg', '/assets/400/f1_2.jpg', '/assets/400/f1_3.jpg', '/assets/400/f1_4.jpg', '/assets/400/f1_5.jpg'] },
   { id: 85, name: "Mẫu f2 (400k)", price: 400000, category: "tong-hop-tu-400k", image: "/assets/400/f2_1.jpg", images: ['/assets/400/f2_1.jpg', '/assets/400/f2_2.jpg'] },
